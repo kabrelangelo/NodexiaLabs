@@ -36,25 +36,25 @@ const contactInfo = [
   {
     icon: Phone,
     title: 'Téléphone',
-    details: ['+237 6XX XXX XXX', '+237 6XX XXX XXX'],
+    details: ['+237 657 890 992', '+237 657 581 214'],
     color: 'blue'
   },
   {
     icon: Mail,
     title: 'Email',
-    details: ['contact@prentisoft.com', 'support@prentisoft.com'],
+    details: ['contact@nodexialabs.com', 'support@nodexialabs.com'],
     color: 'purple'
   },
   {
     icon: MapPin,
     title: 'Adresse',
-    details: ['Bafoussam, Cameroun', 'Rue des Entrepreneurs'],
+    details: ['Douala, Cameroun', 'Bali'],
     color: 'pink'
   },
   {
     icon: Clock,
     title: 'Horaires',
-    details: ['Lun - Ven: 8h - 18h', 'Sam: 9h - 13h'],
+    details: ['Lun - Ven: 8h - 18h', 'Sam: 9h - 15h'],
     color: 'emerald'
   }
 ];
@@ -113,14 +113,14 @@ const Contact = () => {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl my-6 mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
               <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Contactez-nous
               </span>
@@ -189,7 +189,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                    placeholder="Jean Dupont"
+                    placeholder="Votre nom"
                   />
                 </div>
 
