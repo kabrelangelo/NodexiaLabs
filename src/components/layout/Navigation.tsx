@@ -25,7 +25,7 @@ const Navigation = () => {
   const navLinks = [
     { path: '/', label: 'Accueil' },
     { path: '/services', label: 'Services' },
-    { path: '/projets', label: 'Projets' },
+    // { path: '/projets', label: 'Projets' },
     { path: '/a-propos', label: 'À Propos' },
     { path: '/blog', label: 'Blog' },
   ];
@@ -35,14 +35,15 @@ const Navigation = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-lg' : 'bg-white/80 backdrop-blur-md'
+        isScrolled ? 'from-blue-400 to-blue-600 shadow-xl' : 'shadow-2xl from-blue-400 to-blue-600 backdrop-blur-md'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex items-center space-x-2">
-            <Monitor className="h-8 w-8 text-blue-600" />
-            <span className="text-2xl font-bold text-gray-900">Nodexia Labs</span>
+            {/* <Monitor className="h-8 w-8 text-blue-600" /> */}
+            <img src="/images/nodexia.png" alt="logo" className="h-16 w-auto" />
+            {/* <span className="text-2xl font-bold text-gray-900">Nodexia Labs</span> */}
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -50,8 +51,8 @@ const Navigation = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-gray-700 hover:text-blue-600 transition-colors ${
-                  location.pathname === link.path ? 'text-blue-600 font-medium' : ''
+                className={`text-gray-100 hover:text-blue-300 transition-colors ${
+                  location.pathname === link.path ? 'text-blue-300 font-bold' : ''
                 }`}
               >
                 {link.label}
@@ -67,7 +68,7 @@ const Navigation = () => {
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-gray-900"
+            className="md:hidden text-gray-100"
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -80,7 +81,7 @@ const Navigation = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t"
+            className="md:hidden bg-gray-200 border-t"
           >
             <div className="px-4 py-2 space-y-1">
               {navLinks.map((link) => (
