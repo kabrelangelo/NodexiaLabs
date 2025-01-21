@@ -70,7 +70,7 @@ const Navigation = () => {
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden text-gray-100"
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isOpen ? <X className="h-10 w-10" /> : <Menu className="h-8 w-8" />}
           </button>
         </div>
       </div>
@@ -81,14 +81,14 @@ const Navigation = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-gray-200 border-t"
+            className="md:hidden border-t"
           >
             <div className="px-4 py-2 space-y-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`block px-3 py-2 text-gray-700 hover:text-blue-600 transition-colors ${
+                  className={`block px-3 py-2 text-gray-100 hover:text-blue-600 transition-colors ${
                     location.pathname === link.path ? 'text-blue-600 font-medium' : ''
                   }`}
                   onClick={() => setIsOpen(false)}
@@ -97,10 +97,12 @@ const Navigation = () => {
                 </Link>
               ))}
               <div className="pt-2">
+                <Link to={"/contact"}  onClick={() => setIsOpen(false)}>
                 <Button variant="primary" size="sm" 
-                className=" from-blue-400 via-purple-400 to-pink-400 w-full">
+                className=" bg-gradient-to-r from-blue-700 via-purple-700 to-pink-400 w-full">
                   Contactez-nous
                 </Button>
+                </Link>
               </div>
             </div>
           </motion.div>
