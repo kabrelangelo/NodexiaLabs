@@ -27,7 +27,7 @@ const Navigation = () => {
     { path: '/services', label: 'Services' },
     // { path: '/projets', label: 'Projets' },
     { path: '/a-propos', label: 'À Propos' },
-    { path: '/blog', label: 'Blog' },
+    // { path: '/blog', label: 'Blog' },
   ];
 
   return (

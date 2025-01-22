@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   Users, Target, Award, Rocket,
@@ -9,7 +8,7 @@ import Button from '../components/common/Button';
 import { fadeIn, staggerContainer } from '../utils/animations';
 
 const stats = [
-  { icon: Users, value: '70+', label: 'Clients Satisfaits' },
+  { icon: Users, value: '80+', label: 'Clients Satisfaits' },
   { icon: Target, value: '100+', label: 'Projets Réalisés' },
   { icon: Award, value: '5+', label: 'Années d\'Expérience' },
   { icon: Brain, value: '3+', label: 'Collaborateurs' }
@@ -38,29 +37,29 @@ const values = [
   }
 ];
 
-const team = [
-  {
-    name: 'Jean Dupont',
-    role: 'CEO & Fondateur',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=800',
-    description: '15 ans d\'expérience en développement et gestion de projets IT.',
-    links: { linkedin: '#', twitter: '#' }
-  },
-  {
-    name: 'Marie Martin',
-    role: 'CTO',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?fit=crop&w=800',
-    description: 'Experte en architecture cloud et développement full-stack.',
-    links: { linkedin: '#', twitter: '#' }
-  },
-  {
-    name: 'Lucas Bernard',
-    role: 'Lead Developer',
-    image: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?fit=crop&w=800',
-    description: 'Spécialiste React et Node.js avec 8 ans d\'expérience.',
-    links: { linkedin: '#', twitter: '#' }
-  }
-];
+// const team = [
+//   {
+//     name: 'Jean Dupont',
+//     role: 'CEO & Fondateur',
+//     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=800',
+//     description: '15 ans d\'expérience en développement et gestion de projets IT.',
+//     links: { linkedin: '#', twitter: '#' }
+//   },
+//   {
+//     name: 'Marie Martin',
+//     role: 'CTO',
+//     image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?fit=crop&w=800',
+//     description: 'Experte en architecture cloud et développement full-stack.',
+//     links: { linkedin: '#', twitter: '#' }
+//   },
+//   {
+//     name: 'Lucas Bernard',
+//     role: 'Lead Developer',
+//     image: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?fit=crop&w=800',
+//     description: 'Spécialiste React et Node.js avec 8 ans d\'expérience.',
+//     links: { linkedin: '#', twitter: '#' }
+//   }
+// ];
 
 const About = () => {
   return (
@@ -178,7 +177,7 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-20">
+     {/*  <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -233,7 +232,7 @@ const About = () => {
             ))}
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="py-20">
