@@ -28,9 +28,9 @@ const Home = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { icon: Users, value: '50+', label: 'Clients Satisfaits', description: 'Entreprises qui nous font confiance' },
-              { icon: Award, value: '100+', label: 'Projets Réalisés', description: 'Livrés avec succès' },
-              { icon: Clock, value: '5+', label: 'Années d\'Expérience', description: 'D\'expertise technique' },
+              { icon: Users, value: '80+', label: 'Clients satisfaits', description: 'Entreprises qui nous font confiance' },
+              { icon: Award, value: '100+', label: 'Projets réalisés', description: 'Livrés avec succès' },
+              { icon: Clock, value: '5+', label: 'Années d\'expérience', description: 'D\'expertise technique' },
               { icon: NetworkIcon, value: '3+', label: 'Collaborateurs', description: 'Talents passionnés' }
             ].map((stat, index) => (
               <motion.div

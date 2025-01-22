@@ -9,8 +9,11 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <Monitor className="h-8 w-8 text-blue-500" />
-              <span className="text-2xl font-bold text-white">Nodexia Labs</span>
+              {/* <Monitor className="h-8 w-8 text-blue-500" /> */}
+              <Link to={"/"} className='' >
+              <img src='/images/nodexia.png' className='h-8' />
+              </Link>
+              {<span className="text-2xl font-bold text-white">Nodexia Labs</span>}
             </div>
             <p className="text-gray-400">
               Solutions informatiques innovantes pour votre transformation numérique.

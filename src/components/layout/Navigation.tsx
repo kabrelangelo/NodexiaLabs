@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Monitor, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import Button from '../common/Button';
 
 const Navigation = () => {
