@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { fadeIn } from '../../utils/animations';
-import { Link } from 'react-router-dom';
 
 interface ProjectCardProps {
   title: string;
@@ -12,7 +11,8 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, category, image, description }) => {
   return (
-    <Link to="/projets" className="block">
+    // <Link to="/projets" className="block">
+    <div className="block">
       <motion.div
         variants={fadeIn}
         whileHover={{ scale: 1.02 }}
@@ -35,7 +35,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, category, image, descr
           <p className="text-gray-200">{description}</p>
         </div>
       </motion.div>
-    </Link>
+      </div>
+    // </Link>
   );
 };
 

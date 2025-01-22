@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
@@ -8,25 +7,25 @@ import { Star } from 'lucide-react';
 
 const testimonials = [
   {
-    name: 'Jean Dupont',
-    role: 'CEO, TechCorp',
-    content: 'Prentisoft a transformé notre entreprise avec des solutions innovantes. Leur expertise et leur professionnalisme sont remarquables.',
+    name: 'Avama Christophe',
+    role: 'Ingénieur Génie Civil',
+    content: 'Nodexia a augmenté la visibilité de notre entreprise avec des solutions innovantes. Leur professionnalisme est remarquable.',
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80'
+    // image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80'
   },
   {
-    name: 'Marie Martin',
-    role: 'Directrice Marketing, InnovCo',
+    name: 'Abono Michèle',
+    role: 'Fondatrice, Michou Cosmetics',
     content: 'Une équipe exceptionnelle qui a su comprendre nos besoins et livrer des résultats au-delà de nos attentes.',
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80'
+    // image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80'
   },
   {
     name: 'Paul Kamga',
-    role: 'Fondateur, StartupHub',
+    role: 'Directeur, RECOSAF',
     content: 'Le meilleur choix pour notre transformation digitale. Leur expertise locale et leur vision globale font la différence.',
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80'
+    // image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80'
   }
 ];
 
@@ -71,11 +70,11 @@ const Testimonials = () => {
                 className="bg-white rounded-xl shadow-lg p-6"
               >
                 <div className="flex items-center space-x-4 mb-4">
-                  <img
+                 {/*  <img
                     src={testimonial.image}
                     alt={testimonial.name}
                     className="w-12 h-12 rounded-full object-cover"
-                  />
+                  /> */}
                   <div>
                     <h3 className="font-semibold text-gray-900">{testimonial.name}</h3>
                     <p className="text-sm text-gray-600">{testimonial.role}</p>

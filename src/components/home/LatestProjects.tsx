@@ -4,22 +4,22 @@ import ProjectCard from '../projects/ProjectCard';
 
 const projects = [
   {
-    title: 'E-commerce Premium',
+    title: 'Site Web de E-commerce',
     category: 'Web Development',
-    image: 'https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+    image: '/images/commerce.jpeg',
     description: 'Plateforme e-commerce complète avec système de paiement intégré.'
   },
   {
     title: 'App Mobile Santé',
     category: 'Mobile',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+    image: '/images/sante.avif',
     description: 'Application mobile de suivi de santé et bien-être.'
   },
   {
-    title: 'Dashboard Analytics',
+    title: 'Site vitrine',
     category: 'Web Application',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-    description: 'Tableau de bord analytique pour entreprise.'
+    image: '/images/vitrine.webp',
+    description: 'Site web vitrine pour entreprise de web marketing.'
   }
 ];
 
