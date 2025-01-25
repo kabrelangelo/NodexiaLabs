@@ -11,6 +11,8 @@ interface ButtonProps {
   onClick?: () => void;
   className?: string;
   to?: string;
+  type?: 'button' | 'submit' | 'reset'; // Ajout de la propriété type
+  disabled?: boolean; // Ajout de la propriété disabled
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -20,7 +22,9 @@ const Button: React.FC<ButtonProps> = ({
   withIcon = false,
   onClick,
   className = '',
-  to
+  to,
+  type = 'button', // Valeur par défaut pour la propriété type
+  disabled = false // Valeur par défaut pour la propriété disabled
 }) => {
   const baseStyles = 'rounded-md font-medium transition-all duration-200 inline-flex items-center justify-center';
   
@@ -53,6 +57,8 @@ const Button: React.FC<ButtonProps> = ({
       whileTap={{ scale: 0.98 }}
       onClick={onClick}
       className={buttonClasses}
+      type={type} // Utilisation de la propriété type
+      disabled={disabled} // Utilisation de la propriété disabled
     >
       {children}
       {withIcon && <ArrowRight className="ml-2 h-5 w-5" />}
