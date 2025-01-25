@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { 
-  Users, Target, Award, Rocket,
+  Users, Target, Award,
   Code, Heart, Shield, Zap, ArrowRight,
   Brain
 } from 'lucide-react';
