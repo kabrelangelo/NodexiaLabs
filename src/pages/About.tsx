@@ -97,7 +97,7 @@ const About = () => {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-5xl mt-10 md:text-6xl font-bold tracking-tight mb-6">
+            <h1 className="text-3xl lg:text-5xl mt-10 md:text-6xl font-bold tracking-tight mb-6">
               <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 À Propos de Nous
               </span>

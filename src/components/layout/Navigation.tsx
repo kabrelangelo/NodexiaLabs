@@ -7,16 +7,31 @@ import Button from '../common/Button';
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [visible, setVisible] = useState(true);
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      const isMobile = window.innerWidth < 768;
+
+      // Gestion de la visibilité sur mobile seulement
+      if (isMobile) {
+        if (currentScrollY > lastScrollY && currentScrollY > 50) {
+          setVisible(false);
+        } else if (currentScrollY < lastScrollY) {
+          setVisible(true);
+        }
+      }
+      
+      setIsScrolled(currentScrollY > 50);
+      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const navLinks = [
     { path: '/', label: 'Accueil' },
@@ -29,10 +44,13 @@ const Navigation = () => {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed w-full z-50 transition-transform duration-300 ${
         isScrolled 
           ? 'bg-white/90 shadow-md backdrop-blur-sm' 
           : 'bg-transparent'
+      } ${
+        // Cache la navbar en haut sur mobile au scroll
+        !visible ? '-translate-y-full' : 'translate-y-0'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,7 +69,7 @@ const Navigation = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`relative px-3 py-2 text-gray-700 transition-all
+                className={`relative px-3 py-2 text-gray-200 transition-all
                   hover:text-blue-600 ${
                     location.pathname === link.path 
                     ? 'font-semibold text-blue-600 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-blue-600' 

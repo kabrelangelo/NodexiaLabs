@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { LucideIcon, ArrowRight, Check } from 'lucide-react';
+import { LucideIcon, Check } from 'lucide-react';
 import { fadeIn } from '../../utils/animations';
 import { Link } from 'react-router-dom';
 
@@ -21,23 +21,34 @@ const colorVariants = {
   indigo: 'bg-indigo-500/20 text-indigo-400 border-indigo-500/20'
 };
 
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  return isMobile;
+};
+
 const ServiceCard: React.FC<ServiceCardProps> = ({ icon: Icon, title, description, color, features }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const isMobile = useIsMobile();
 
   return (
     <Link to="/services" className="block h-full">
       <motion.div
         variants={fadeIn}
-        onHoverStart={() => setIsHovered(true)}
-        onHoverEnd={() => setIsHovered(false)}
+        onHoverStart={() => !isMobile && setIsHovered(true)}
+        onHoverEnd={() => !isMobile && setIsHovered(false)}
         className="relative h-full bg-white/5 backdrop-blur-lg rounded-xl overflow-hidden group"
       >
-        {/* Background Gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-800/95 to-gray-900/95 opacity-95 group-hover:opacity-100 transition-opacity" />
 
-        {/* Content */}
         <div className="relative p-6 h-full flex flex-col">
-          {/* Icon */}
           <motion.div
             animate={isHovered ? { scale: 1.1, rotate: 5 } : { scale: 1, rotate: 0 }}
             transition={{ duration: 0.2 }}
@@ -46,7 +57,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon: Icon, title, descriptio
             <Icon className="h-7 w-7" />
           </motion.div>
 
-          {/* Title & Description */}
           <motion.h3
             animate={isHovered ? { scale: 1.05 } : { scale: 1 }}
             transition={{ duration: 0.2 }}
@@ -58,10 +68,12 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon: Icon, title, descriptio
             {description}
           </p>
 
-          {/* Features */}
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: isHovered ? 1 : 0, height: isHovered ? 'auto' : 0 }}
+            animate={{ 
+              opacity: isMobile ? 1 : (isHovered ? 1 : 0), 
+              height: isMobile ? 'auto' : (isHovered ? 'auto' : 0) 
+            }}
             transition={{ duration: 0.3 }}
             className="space-y-3 mb-6"
           >
@@ -69,8 +81,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon: Icon, title, descriptio
               <motion.div
                 key={feature}
                 initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: isHovered ? 1 : 0, x: isHovered ? 0 : -10 }}
-                transition={{ delay: index * 0.1 }}
+                animate={{ 
+                  opacity: isMobile ? 1 : (isHovered ? 1 : 0), 
+                  x: isMobile ? 0 : (isHovered ? 0 : -10) 
+                }}
+                transition={{ delay: isMobile ? 0 : index * 0.1 }}
                 className="flex items-center text-gray-400"
               >
                 <Check className={`w-4 h-4 mr-2 ${colorVariants[color].split(' ')[1]}`} />
@@ -79,16 +94,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon: Icon, title, descriptio
             ))}
           </motion.div>
 
-          {/* Learn More Link */}
-          <motion.div
-            animate={isHovered ? { x: 5 } : { x: 0 }}
-            className={`flex items-center ${colorVariants[color].split(' ')[1]} group-hover:text-white transition-colors mt-auto`}
-          >
-            <span className="mr-2">En savoir plus</span>
-            <ArrowRight className="w-4 h-4" />
-          </motion.div>
-
-          {/* Decorative Elements */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: isHovered ? 0.1 : 0 }}
