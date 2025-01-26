@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import Button from '../common/Button';
+import HeroImage from '../../../public/images/vitrine.avif'; // Import static image
 
 const HeroSection = () => {
   return (
@@ -8,52 +9,36 @@ const HeroSection = () => {
       {/* Background with overlay */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/90 to-blue-900/90" />
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
+        <img 
+          src={HeroImage} 
+          alt="Hero Background"
           className="w-full h-full object-cover"
-        >
-          <source
-            src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-26070-large.mp4"
-            type="video/mp4"
-          />
-        </video>
+        />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center text-white"
+        <div
+          className="text-center text-white animate-fadeIn"
         >
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight"
+          <h1
+            className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight animate-fadeIn"
+            style={{ animationDelay: '200ms' }}
           >
             Innovez avec
             <span className="text-blue-300"> Prentisoft</span>
-          </motion.h1>
+          </h1>
           
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="mt-6 text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto"
+          <p
+            className="mt-6 text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto animate-fadeIn"
+            style={{ animationDelay: '400ms' }}
           >
             Transformez votre entreprise avec des solutions numériques sur mesure.
             Expertise locale, vision globale.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
+          <div
+            className="mt-10 flex flex-col sm:flex-row gap-4 justify-center animate-fadeIn"
+            style={{ animationDelay: '600ms' }}
           >
             <Button
               variant="primary"
@@ -70,14 +55,12 @@ const HeroSection = () => {
             >
               Contactez-nous
             </Button>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white"
+        <div
+          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white animate-fadeInUp"
+          style={{ animationDelay: '800ms' }}
         >
           <div>
             <div className="text-4xl font-bold">100+</div>
@@ -95,24 +78,18 @@ const HeroSection = () => {
             <div className="text-4xl font-bold">24/7</div>
             <div className="mt-2 text-blue-200">Support Client</div>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1, duration: 0.8 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+      <div
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce-slow"
+        
       >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5 }}
-          className="text-white"
-        >
-          <ArrowRight className="h-6 w-6 transform rotate-90" />
-        </motion.div>
-      </motion.div>
+        
+          <ArrowRight className="h-6 w-6 transform rotate-90 text-white" />
+        
+      </div>
     </div>
   );
 };

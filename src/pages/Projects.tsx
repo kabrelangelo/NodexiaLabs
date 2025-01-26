@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import { ExternalLink, Code, Database, Server, Shield, Brain } from 'lucide-react';
-import { fadeIn, staggerContainer } from '../utils/animations';
 
 interface Project {
   id: number;
@@ -114,32 +112,11 @@ const Projects = () => {
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] opacity-20" />
-          <motion.div
-            animate={{
-              scale: [1, 1.2, 1],
-              rotate: [0, 360],
-              opacity: [0.1, 0.2, 0.1]
-            }}
-            transition={{ duration: 20, repeat: Infinity }}
-            className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"
-          />
-          <motion.div
-            animate={{
-              scale: [1.2, 1, 1.2],
-              rotate: [0, -360],
-              opacity: [0.1, 0.2, 0.1]
-            }}
-            transition={{ duration: 25, repeat: Infinity }}
-            className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"
-          />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
+          <div
+            className="text-center animate-fadeIn"
           >
             <h1 className="text-5xl mt-10 md:text-6xl font-bold tracking-tight mb-6">
               <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
@@ -149,26 +126,21 @@ const Projects = () => {
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               Découvrez nos réalisations et projets innovants dans différents domaines technologiques.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Category Filter */}
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
-            className="flex flex-wrap justify-center gap-4"
+          <div
+            className="flex flex-wrap justify-center gap-4 animate-fadeIn"
           >
             {categories.map((category, index) => {
               const Icon = getCategoryIcon(category.id);
               return (
-                <motion.button
+                <button
                   key={category.id}
-                  variants={fadeIn}
-                  custom={index}
                   onClick={() => setActiveCategory(category.id)}
                   className={`px-6 py-3 rounded-full flex items-center space-x-2 transition-all duration-300 ${
                     activeCategory === category.id
@@ -178,28 +150,24 @@ const Projects = () => {
                 >
                   <Icon className="w-4 h-4" />
                   <span>{category.name}</span>
-                </motion.button>
+                </button>
               );
             })}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Projects Grid */}
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
+          <div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
           >
             {filteredProjects.map((project, index) => (
-              <motion.div
+              <div
                 key={project.id}
-                variants={fadeIn}
-                custom={index}
-                className="relative group"
+                className="relative group animate-fadeInUp"
+                style={{animationDelay: `${index * 200}ms`}}
                 onMouseEnter={() => setHoveredProject(project.id)}
                 onMouseLeave={() => setHoveredProject(null)}
               >
@@ -257,19 +225,17 @@ const Projects = () => {
                     </a>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Call to Action */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center"
+          <div
+            className="text-center animate-fadeInUp"
           >
             <h2 className="text-3xl font-bold text-white mb-6">
               Vous avez un projet en tête ?
@@ -283,7 +249,7 @@ const Projects = () => {
             >
               Contactez-nous
             </a>
-          </motion.div>
+          </div>
         </div>
       </section>
     </div>

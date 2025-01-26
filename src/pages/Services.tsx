@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { 
   Code, Database, Cloud, Shield, 
   Smartphone, Server, Braces, 
@@ -8,7 +7,6 @@ import {
   Bot, Brain
 } from 'lucide-react';
 import Button from '../components/common/Button';
-import { fadeIn, staggerContainer } from '../utils/animations';
 
 interface Service {
   icon: any;
@@ -145,33 +143,12 @@ const Services = () => {
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] opacity-20" />
-          <motion.div
-            animate={{
-              scale: [1, 1.2, 1],
-              rotate: [0, 360],
-              opacity: [0.1, 0.2, 0.1]
-            }}
-            transition={{ duration: 20, repeat: Infinity }}
-            className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"
-          />
-          <motion.div
-            animate={{
-              scale: [1.2, 1, 1.2],
-              rotate: [0, -360],
-              opacity: [0.1, 0.2, 0.1]
-            }}
-            transition={{ duration: 25, repeat: Infinity }}
-            className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"
-          />
         </div>
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
+          <div
+            className="text-center animate-fadeIn"
           >
             <h1 className="text-5xl my-10 md:text-6xl font-bold tracking-tight mb-6">
               <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
@@ -181,24 +158,19 @@ const Services = () => {
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               Des solutions technologiques innovantes pour propulser votre entreprise vers le futur
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Category Filter */}
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
-            className="flex flex-wrap justify-center gap-4"
+          <div
+            className="flex flex-wrap justify-center gap-4 animate-fadeIn"
           >
             {categories.map((category, index) => (
-              <motion.button
+              <button
                 key={category.id}
-                variants={fadeIn}
-                custom={index}
                 onClick={() => setActiveCategory(category.id)}
                 className={`px-6 py-3 rounded-xl border-2 transition-all duration-300 ${
                   activeCategory === category.id
@@ -207,28 +179,24 @@ const Services = () => {
                 }`}
               >
                 {category.label}
-              </motion.button>
+              </button>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Services Grid */}
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
+          <div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {filteredServices.map((service, index) => (
-              <motion.div
+              <div
                 key={service.title}
-                variants={fadeIn}
-                custom={index}
                 onClick={() => setSelectedService(service)}
-                className="group cursor-pointer"
+                className="group cursor-pointer animate-fadeInUp"
+                style={{animationDelay: `${index * 200}ms`}}
               >
                 <div className="h-full bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 transition-all duration-300 hover:bg-white/10 hover:border-white/20">
                   {/* Icon */}
@@ -278,20 +246,17 @@ const Services = () => {
                     </Button>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Bottom CTA */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-12"
+          <div
+            className="text-center bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-12 animate-fadeInUp"
           >
             <h2 className="text-3xl font-bold text-white mb-6">
               Prêt à démarrer votre projet ?
@@ -308,7 +273,7 @@ const Services = () => {
             >
               Nous contacter
             </Button>
-          </motion.div>
+          </div>
         </div>
       </section>
     </div>

@@ -18,90 +18,108 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const isActive = (path: string) => {
-    return location.pathname === path ? 'text-blue-600 text-bold' : 'text-gray-900';
-  };
-
   const navLinks = [
     { path: '/', label: 'Accueil' },
     { path: '/services', label: 'Services' },
-    // { path: '/projets', label: 'Projets' },
     { path: '/a-propos', label: 'À Propos' },
-    // { path: '/blog', label: 'Blog' },
   ];
 
   return (
     <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'from-blue-400 to-blue-600 shadow-xl' : 'shadow-2xl from-blue-400 to-blue-600 backdrop-blur-md'
+        isScrolled 
+          ? 'bg-white/90 shadow-md backdrop-blur-sm' 
+          : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          <Link to="/" className="flex items-center space-x-2">
-            {/* <Monitor className="h-8 w-8 text-blue-600" /> */}
-            <img src="/images/nodexia.png" alt="logo" className="h-16 w-auto" />
-            {/* <span className="text-2xl font-bold text-gray-900">Nodexia Labs</span> */}
+        <div className="flex justify-between items-center h-16">
+          <Link to="/" className="flex items-center space-x-3">
+            <img 
+              src="/images/nodexia.png" 
+              alt="logo" 
+              className="h-10 w-auto transition-transform hover:scale-105" 
+            />
           </Link>
 
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-gray-100 hover:text-blue-300 transition-colors ${
-                  location.pathname === link.path ? 'text-blue-300 font-bold' : ''
-                }`}
+                className={`relative px-3 py-2 text-gray-700 transition-all
+                  hover:text-blue-600 ${
+                    location.pathname === link.path 
+                    ? 'font-semibold text-blue-600 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-blue-600' 
+                    : 'hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:w-full hover:after:h-0.5 hover:after:bg-blue-600/30'
+                  }`}
               >
                 {link.label}
               </Link>
             ))}
             <Link to="/contact">
-            <Button className=' bg-gradient-to-r from-blue-700 via-purple-700 to-pink-400' size="sm">
-              Contactez-nous
-            </Button>
+              <Button 
+                size="sm"
+                className="ml-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800"
+              >
+                Contactez-nous
+              </Button>
             </Link>
-           
           </div>
 
+          {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-gray-100"
+            className="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
+            aria-label="Menu"
           >
-            {isOpen ? <X className="h-10 w-10" /> : <Menu className="h-8 w-8" />}
+            {isOpen ? (
+              <X className="h-8 w-8" strokeWidth={1.5} />
+            ) : (
+              <Menu className="h-8 w-8" strokeWidth={1.5} />
+            )}
           </button>
         </div>
       </div>
 
+      {/* Mobile Navigation */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="md:hidden absolute w-full bg-white shadow-lg"
           >
-            <div className="px-4 py-2 space-y-1">
+            <div className="px-4 py-4 space-y-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`block px-3 py-2 text-gray-100 hover:text-blue-600 transition-colors ${
-                    location.pathname === link.path ? 'text-blue-600 font-medium' : ''
-                  }`}
+                  className={`block px-4 py-3 rounded-lg text-gray-700 transition-colors
+                    ${
+                      location.pathname === link.path
+                        ? 'bg-blue-50 text-blue-600 font-semibold'
+                        : 'hover:bg-gray-50'
+                    }`}
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
                 </Link>
               ))}
-              <div className="pt-2">
-                <Link to={"/contact"}  onClick={() => setIsOpen(false)}>
-                <Button variant="primary" size="sm" 
-                className=" bg-gradient-to-r from-blue-700 via-purple-700 to-pink-400 w-full">
-                  Contactez-nous
-                </Button>
+              <div className="pt-4 px-2">
+                <Link to="/contact" onClick={() => setIsOpen(false)}>
+                  <Button
+                    variant="primary"
+                    size="sm"
+                    className="w-full bg-gradient-to-r from-blue-600 to-blue-700"
+                  >
+                    Contactez-nous
+                  </Button>
                 </Link>
               </div>
             </div>
