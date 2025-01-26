@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
@@ -10,6 +10,7 @@ const Navigation = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [visible, setVisible] = useState(true);
   const location = useLocation();
+  const mobileMenuRef = useRef<HTMLDivElement>(null); // Ref for mobile menu
 
   useEffect(() => {
       const handleScroll = () => {
@@ -34,6 +35,24 @@ const Navigation = () => {
     { path: '/services', label: 'Services' },
     { path: '/a-propos', label: 'À Propos' },
   ];
+
+  // Function to close mobile menu
+  const closeMobileMenu = () => {
+    setIsOpen(false);
+  };
+
+  // Close menu on outside click (mobile)
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => { // Explicitly type event
+      if (isOpen && mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as HTMLElement)) {
+        closeMobileMenu();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isOpen]);
+
 
   return (
     <motion.nav
@@ -100,20 +119,20 @@ const Navigation = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            ref={mobileMenuRef} // Add ref to mobile menu div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden absolute w-full bg-white shadow-lg"
+            className="md:hidden absolute w-full bg-gray-900 shadow-lg"
           >
-            <div className="px-4 py-4 space-y-2">
+            <div className="px-4 py-4 space-y-2 text-white">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`block px-4 py-3 rounded-lg text-gray-700 transition-colors
-                    ${
+                  className={`block px-4 py-3 rounded-lg text-gray-200 transition-colors ${
                       location.pathname === link.path
-                        ? 'bg-blue-50 text-blue-600 font-semibold'
+                        ? 'bg-blue-600 text-white font-semibold'
                         : 'hover:bg-gray-50'
                     }`}
                   onClick={() => setIsOpen(false)}
