@@ -12,18 +12,14 @@ const Navigation = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const isMobile = window.innerWidth < 768;
+      const handleScroll = () => {
+        const currentScrollY = window.scrollY;
 
-      // Gestion de la visibilité sur mobile seulement
-      if (isMobile) {
         if (currentScrollY > lastScrollY && currentScrollY > 50) {
           setVisible(false);
         } else if (currentScrollY < lastScrollY) {
           setVisible(true);
         }
-      }
       
       setIsScrolled(currentScrollY > 50);
       setLastScrollY(currentScrollY);
@@ -44,11 +40,7 @@ const Navigation = () => {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className={`fixed w-full z-50 transition-transform duration-300 ${
-        isScrolled 
-          ? 'bg-white/90 shadow-md backdrop-blur-sm' 
-          : 'bg-transparent'
-      } ${
+      className={`w-full z-50 transition-transform duration-300 bg-gradient-to-b from-gray-900 via-[#0f1729] to-gray-900 ${
         // Cache la navbar en haut sur mobile au scroll
         !visible ? '-translate-y-full' : 'translate-y-0'
       }`}

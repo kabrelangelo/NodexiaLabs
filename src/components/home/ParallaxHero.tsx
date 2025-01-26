@@ -31,7 +31,7 @@ const ParallaxHero = () => {
                 Solutions Numériques Innovantes
               </span>
             </h1>
-            <p className="mt-6 text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            <p className="mt-6 text-lg lg:text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
               Créons ensemble le futur numérique de votre entreprise avec des solutions 
               sur mesure et innovantes.
             </p>
@@ -60,32 +60,35 @@ const ParallaxHero = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8 animate-fadeInUp" style={{ animationDelay: '400ms' }}>
-            <Button
-              variant="primary"
-              size="lg"
-              to="/contact"
-              className="relative group overflow-hidden rounded-xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-[2px]"
-            >
-              <div className="relative bg-gray-900 rounded-[10px] p-4 transition-all duration-300 group-hover:bg-opacity-90">
-                <span className="relative z-10 flex items-center justify-center text-white font-semibold">
-                  Démarrer un projet
-                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </div>
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              to="/services"
-              className="relative overflow-hidden rounded-xl border-2 border-white/20 hover:border-white/40 bg-white/5 backdrop-blur-sm transition-all duration-300 hover:bg-white/10"
-            >
-              <span className="relative z-10 flex items-center justify-center text-white">
-                Découvrir nos services
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </Button>
-          </div>
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center pt-8 animate-fadeInUp" style={{ animationDelay: '400ms' }}>
+  {/* Premier bouton */}
+  <Button
+    variant="primary"
+    size="lg"
+    to="/contact"
+    className="relative group overflow-hidden rounded-xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-[1px] w-full sm:w-auto"
+  >
+    <div className="relative bg-gray-900 rounded-[10px] p-3 sm:p-4 transition-all duration-300 group-hover:bg-opacity-90">
+      <span className="relative z-6 flex items-center justify-center text-white font-semibold text-sm sm:text-base">
+        Démarrer un projet
+        <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
+      </span>
+    </div>
+  </Button>
+
+  {/* Deuxième bouton */}
+  <Button
+    variant="outline"
+    size="lg"
+    to="/services"
+    className="relative overflow-hidden rounded-xl border-2 border-white/20 hover:border-white/40 bg-white/5 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 w-full sm:w-auto"
+  >
+    <span className="relative z-6 flex items-center justify-center text-white text-sm sm:text-base">
+      Découvrir nos services
+      <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
+    </span>
+  </Button>
+</div>
         </div>
       </div>
 

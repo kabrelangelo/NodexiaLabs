@@ -5,7 +5,7 @@ const projects = [
   {
     title: 'Site Web de E-commerce',
     category: 'Web Development',
-    image: '/images/commerce.avif',
+    image: '/images/commerce.jpeg',
     description: 'Plateforme e-commerce complète avec système de paiement intégré.'
   },
   {
@@ -17,7 +17,7 @@ const projects = [
   {
     title: 'Site vitrine',
     category: 'Web Application',
-    image: '/images/vitrine.avif',
+    image: '/images/vitrine.webp',
     description: 'Site web vitrine pour entreprise de web marketing.'
   }
 ];
@@ -32,7 +32,7 @@ const LatestProjects = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
             Nos Derniers Projets
           </h2>
-          <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="mt-4 text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
             Découvrez nos réalisations récentes et laissez-vous inspirer
           </p>
         </div>

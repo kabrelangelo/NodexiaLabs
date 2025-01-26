@@ -68,7 +68,7 @@ const About = () => {
       <section className="relative py-20 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] opacity-20" />
+          <div className="absolute inset-0 sm:bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] sm:bg-[size:14px_24px] sm:opacity-20 bg-gray-900/50" />
           <motion.div
             animate={{
               scale: [1, 1.2, 1],
@@ -76,7 +76,7 @@ const About = () => {
               opacity: [0.1, 0.2, 0.1]
             }}
             transition={{ duration: 20, repeat: Infinity }}
-            className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"
+            className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full sm:blur-3xl sm:hidden"
           />
           <motion.div
             animate={{
@@ -85,7 +85,7 @@ const About = () => {
               opacity: [0.1, 0.2, 0.1]
             }}
             transition={{ duration: 25, repeat: Infinity }}
-            className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"
+            className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full sm:blur-3xl sm:hidden"
           />
         </div>
 
@@ -97,12 +97,12 @@ const About = () => {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-3xl lg:text-5xl mt-10 md:text-6xl font-bold tracking-tight mb-6">
+            <h1 className="text-3xl lg:text-5xl mt-10 md:text-4xl font-bold tracking-tight mb-6">
               <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 À Propos de Nous
               </span>
             </h1>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-400 max-w-3xl mx-auto mobile:text-lg pc:text-xl">
               Découvrez l'équipe passionnée derrière Nodexia Labs et notre engagement 
               envers l'excellence technologique.
             </p>
@@ -129,7 +129,7 @@ const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl" />
                 <stat.icon className="w-8 h-8 mx-auto mb-4 text-blue-400" />
                 <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
-                <div className="text-sm text-gray-400">{stat.label}</div>
+                <div className="text-lg text-gray-400">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>

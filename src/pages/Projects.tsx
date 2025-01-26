@@ -123,7 +123,7 @@ const Projects = () => {
                 Nos Projets
               </span>
             </h1>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto mobile:text-lg pc:text-xl">
               Découvrez nos réalisations et projets innovants dans différents domaines technologiques.
             </p>
           </div>

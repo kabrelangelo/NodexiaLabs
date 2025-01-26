@@ -87,7 +87,7 @@ const FeaturedServices = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Nos Services
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto">
             Des solutions innovantes pour propulser votre entreprise vers le futur numérique
           </p>
         </div>
@@ -117,7 +117,7 @@ const FeaturedServices = () => {
             >
               <Code className="w-6 h-6 text-blue-400" />
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">Code Qualité</h3>
+            <h3 className="text-lg lg:text-xl font-semibold text-white mb-2">Code Qualité</h3>
             <p className="text-gray-400">Standards de codage stricts et revues de code régulières</p>
           </div>
           
@@ -127,7 +127,7 @@ const FeaturedServices = () => {
             >
               <Server className="w-6 h-6 text-purple-400" />
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">Support 24/7</h3>
+            <h3 className="text-lg lg:text-xl font-semibold text-white mb-2">Support 24/7</h3>
             <p className="text-gray-400">Une équipe dédiée pour vous accompagner à chaque étape</p>
           </div>
           
@@ -137,7 +137,7 @@ const FeaturedServices = () => {
             >
               <Shield className="w-6 h-6 text-green-400" />
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">Sécurité Maximale</h3>
+            <h3 className="text-lg lg:text-xl font-semibold text-white mb-2">Sécurité Maximale</h3>
             <p className="text-gray-400">Protection avancée de vos données et applications</p>
           </div>
         </div>

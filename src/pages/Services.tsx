@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { 
   Code, Database, Cloud, Shield, 
-  Smartphone, Server, Braces, 
-  LineChart, Users, Settings,
-  Monitor, Cpu, Network, Lock,
-  Bot, Brain
+  Smartphone, Bot
 } from 'lucide-react';
 import Button from '../components/common/Button';
 
@@ -150,12 +147,12 @@ const Services = () => {
           <div
             className="text-center animate-fadeIn"
           >
-            <h1 className="text-5xl my-10 md:text-6xl font-bold tracking-tight mb-6">
+            <h1 className="text-3xl lg:text-5xl my-10 md:text-6xl font-bold tracking-tight mb-6">
               <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Nos Services
               </span>
             </h1>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto mobile:text-lg pc:text-xl">
               Des solutions technologiques innovantes pour propulser votre entreprise vers le futur
             </p>
           </div>

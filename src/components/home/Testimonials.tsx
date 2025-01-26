@@ -43,7 +43,7 @@ const Testimonials = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
             Ce que disent nos clients
           </h2>
-          <p className="mt-4 text-xl text-gray-600">
+          <p className="mt-4 text-lg lg:text-xl text-gray-600">
             Des témoignages qui reflètent notre engagement envers l'excellence
           </p>
         </motion.div>
