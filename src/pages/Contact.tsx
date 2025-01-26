@@ -322,7 +322,7 @@ const Contact = () => {
       </section>
 
       {/* Map Section */}
-      <section className="py-20">
+      {/* <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative overflow-hidden rounded-2xl aspect-video">
             <iframe
@@ -337,7 +337,7 @@ const Contact = () => {
             />
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };
