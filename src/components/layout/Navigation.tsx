@@ -13,6 +13,10 @@ const Navigation = () => {
   const mobileMenuRef = useRef<HTMLDivElement>(null); // Ref for mobile menu
 
   useEffect(() => {
+    window.scrollTo(0, 0); // Reset scroll to top on route change
+  }, [location.pathname]);
+
+  useEffect(() => {
       const handleScroll = () => {
         const currentScrollY = window.scrollY;
 

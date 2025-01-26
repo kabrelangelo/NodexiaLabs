@@ -1,7 +1,17 @@
-import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { Suspense, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navigation from './components/layout/Navigation';
 import Footer from './components/layout/Footer';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 // Lazy load all pages
 const Home = React.lazy(() => import('./pages/Home'));
@@ -15,6 +25,7 @@ function App() {
     <Router>
       <div className="min-h-screen flex flex-col">
         <Navigation />
+        <ScrollToTop /> {/* Add ScrollToTop component here */}
         <main className="flex-grow">
           <Suspense fallback={<div className="h-screen flex items-center justify-center">Chargement...</div>}>
             <Routes>
